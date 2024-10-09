@@ -1,0 +1,961 @@
+[server]
+url = "http://era.islab.di.unimi.it/" # This is just a testing instance of ERA model.
+user = ""
+password = ""
+
+# ENTITY TYPE MAPPING AND PROPERTIES DEFINITION
+
+[mapping]
+############ OPERA ############
+
+"WORK_ID" = "source"
+"UNIFORM_TITLE" = "appellation" 
+"WORK_CLASSIFICATION" = "group"
+"PERSON_ID_AUTHOR" = "person"
+
+#################### EXPRESSION ####################
+"EXPRESSION_ID" = "source"
+"MEDIUM" = "group"
+"NUMBER_OF_EXPRESSION"="object"
+"LANGUAGE"="group"
+"TYPE" = "group"
+"COMPLETENESS" = "object"
+"INCIPIT"= "object"
+"EXPLICIT"="object"
+"RESPONSIBILITY"="object"
+"PERSON_ID_SECONDARY_AUTHOR"="person"
+
+#################### MANIFESTATION ####################
+"MANIFESTATION_ID"="source"
+"MANIFESTATION_VOLUME_ID"="source"
+"EXTERNAL_ID"="object"
+"SHORT_TITLE"="appellation"
+"PLACE_OF_PUBLICATION"="place"
+"DATE_OF_PUBLICATION"="timespan"
+"RANGE_OF_DATE_OF_PUBLICATION"="object"
+"PRINT_RUN"="object"
+"EDITION_NUMBER"="object"
+"NUMBER_OF_VOLUMES"="object"
+"TITLE_OF_THE_VOLUME(S)"="group"
+"FORMAT"="object"
+"COLLATION_FORMULA"="object"
+"NUMBER_OF_PAGES"="object"
+"PAGES_INTRODUCTION"="object"
+"EXTERNAL_DIGITIZATION"="object"
+"PAGES"="object"
+"PERSON_ID_PUBLISHER"="person"
+"PERSON_ID_EDITOR"="person"
+"PERSON_ID_CORRECTOR"="person"
+"PERSON_ID_SPONSOR"="person"
+"INSTITUTION_ID_PUBLISHER"="institution"
+"INSTITUTION_ID_SPONSOR"="institution"
+
+#################### PLACE ####################
+"PLACE_ID"="place"
+"NAME"="appellation"
+"DESCRIPTION_WIKIDATA"="object"
+"WIKIDATA_LINK_PLACE"="object"
+"ALSO_KNOWN_AS"="appellation"
+"VIAF_CODE"="object"
+"OTHER_CODES"="object"
+"WIKIDATA_ID"="object"
+"COORDINATES"="object"
+
+
+#################### ITEM ####################
+"ITEM_ID"="source" #or map it to the object
+"SHELF_MARK"="group"
+"PRESERVATION_STATUS_OF_ITEM"="object"
+"MATERIAL"="object"
+"HEIGHT_WIDTH"="object"
+#"VOL_ID"="object"
+"NUMBER_OF_THE_COPY"="object"
+"SURVIVING_NUMBER_OF_PAGES"="object"
+"PRESERVATION_STATUS_OF_THE_PAGES"="object"
+"PHYSICAL_DESCRIPTION"="object"
+"PERSON_ID_OWNER_OF_ITEM"="person"
+"INSTITUTION_ID_OWNER_OF_ITEM"="institution"
+"PHYSICAL_OBJECT_ID"="object"
+
+#################### PAGE ####################
+
+"PAGE_ID"= "source"
+"DESCRIPTION_OF_PAGE"= "object"
+"MATERIAL_PAGE"= "object"
+"DIGITAL_ITEM_ID"= "object"
+#"ATTACHMENT"= "attachment" #kako povezati
+"VISUAL_OBJECT_ID"= "object"
+"PHYSICAL_OBJECT_ID_PAGE"="object"
+
+
+#################### VISUAL OBJECT ####################
+
+"INSTRUMENT"="object"
+"COLOUR"="object"
+"TRANSCRIPTION"="object"
+"DESCRIPTION_OF_VISUAL_OBJECT"="object"							
+"QUALITY_OF_THE_TRANSCRIPTION"="object"
+"TRANSCRIPTION_OF_THE_ТЕXТ_REFFERED_TO_IN_BOOK"="object"
+"DESCRIPTION_OF_THE_ТЕXТ_REFFERED_TO_IN_BOOK"="object"
+"FUNCTION"="group"      
+"LANGUAGE_OF_VISUAL"="group"
+"POSITION_IN_THE_PAGE"="object"
+"DATE_ON_VISUAL"="timespan"
+"PERSON_ID_INSCRIBER"="person"
+"PERSON_ID_SENDER"="person"
+"PERSON_ID_RECIPIENT"="person"
+
+#################### PERSON ####################
+
+"PERSON_ID"="person"
+"SURNAME_NAME"="appellation"		
+"DATE_OF_BIRTH"="timespan"
+"DOB_NOTES"="object"
+"DATE_OF_DEATH"="timespan"
+"DOD_NOTES"="object"
+"ADDITIONAL_NOTES"="object"
+"GENDER"="group"
+"ALIASES"="appellation"
+"INSTITUTION_ID"="institution"
+"WIKIDATA_LINK_PERSON"="object"
+
+
+#################### PHYSICAL OBJECT ####################
+
+"INSERTION_TYPE"="object"					
+"DESCRIPTION_OF_PHYSICAL_OBJECT"="object"
+"PRESERVATION_STATUS_OF_PHYSICAL_OBJECT"="object"
+                         
+"DATE"="timespan"                  
+"PERSON_ID_CREATOR_OF"="person"
+"INSTITUTION_ID_CREATOR_OF"="institution"
+"PERSON_ID_OWNERSHIP_OF"="person"
+"INSTITUTION_ID_OWNERSHIP_OF"="institution"
+
+#################### EVENT ####################
+
+"EVENT_ID"="event"
+"DESCRIPTION_EVENT"="object"
+"DATE_OF_EVENT"="timespan"
+"WIKIDATA_LINK_EVENT"="object"
+
+#################### ABSTRACT_CHARACTER ####################
+"ABSTRACT_CHARACTER_ID"="object"
+"DESCRIPTION_ABSTRACT_CHARACTER"="object"
+"WIKIDATA_LINK_ABSTRACT_CHARACTER"="object"
+
+
+#################### INSTITUTION ####################
+"WIKIDATA_LINK_INSTITUTION"="object"
+#################### MENTIONS ####################
+
+"MENTIONING_ID"="object"
+"MENTIONED_ID"="object"
+
+#################### RELATIONS ####################
+
+"PERSON_CHARACTER_ID_A"="person"
+"PERSON_CHARACTER_ID_B"="person"
+"RELATION"="appellation"
+
+
+#################### HYPOTHESIS ####################
+
+"HYPOTHESIS_ID"="object"
+"PERSON_ID_HYPOTHESIS_OF"="person"
+"HYPOTHESIS_ABOUT_ID(S)"="object"
+
+
+[properties.ID] 
+#"COORDINATES" = "latitude" 
+#"LONGITUDE" = "longitude" 
+
+
+[delimited_fields]
+"WORK_CLASSIFICATION" = ";"
+"MEDIUM"= ";"
+"LANGUAGE"= ";"
+"DESCRIPTION_WIKIDATA"=";"
+"TRANSCRIPTION"=";"
+"ALSO_KNOWN_AS" = ";"
+"VIAF_CODE" = ";"
+"PHYSICAL_OBJECT_ID"=";"
+"VISUAL_OBJECT_ID"=";"
+"TYPE"=";"
+"LANGUAGE_OF_VISUAL"=";"
+"FUNCTION"=";"
+"TRANSCRIPTION_OF_THE_ТЕXТ_REFFERED_TO_IN_BOOK"=";"
+"ALIASES"=";"
+"OTHER_CODES"=";"
+"DESCRIPTION_ABSTRACT_CHARACTER"=";"
+"MENTIONED_ID"=";"
+"MATERIAL_PAGE"=";"
+"MATERIAL"=";"
+"DESCRIPTION_OF_VISUAL_OBJECT"=";"
+"PERSON_CHARACTER_ID_B"=";"
+
+
+# RELATIONS DEFINITION
+
+#################### OPERA ####################
+[[relations]]
+name = "has_uniform_title"
+entity1 = "WORK_ID" 
+entity2 = "UNIFORM_TITLE" 
+
+[[relations]]
+name = "has_classification"
+entity1 = "WORK_ID" 
+entity2 = "WORK_CLASSIFICATION" 
+
+[[relations]]
+name = "has_author"
+entity1 = "WORK_ID" 
+entity2 = "PERSON_ID_AUTHOR" 
+
+#################### EXPRESSION ####################
+
+[[relations]]
+name = "has_medium"
+entity1 = "EXPRESSION_ID" 
+entity2 = "MEDIUM" 
+
+[[relations]]
+name = "has_language"
+entity1 = "EXPRESSION_ID" 
+entity2 = "LANGUAGE" 
+
+[[relations]]
+name = "has_number_of_expression"
+entity1 = "EXPRESSION_ID" 
+entity2 = "NUMBER_OF_EXPRESSION" 
+
+[[relations]]
+name = "has_type"
+entity1 = "EXPRESSION_ID" 
+entity2 = "TYPE" 
+
+[[relations]]
+name = "has_level_of_completeness"
+entity1 = "EXPRESSION_ID" 
+entity2 = "COMPLETENESS" 
+
+[[relations]]
+name = "has_incipit"
+entity1 = "EXPRESSION_ID" 
+entity2 = "INCIPIT" 
+
+[[relations]]
+name = "has_explicit"
+entity1 = "EXPRESSION_ID" 
+entity2 = "EXPLICIT" 
+
+[[relations]]
+name = "is_expression_of"
+entity1 = "EXPRESSION_ID" 
+entity2 = "WORK_ID" 
+
+[[relations]]
+name = "has_secondary_author"
+entity1 = "EXPRESSION_ID" 
+entity2 = "PERSON_ID_SECONDARY_AUTHOR" 
+
+
+[[relations]]
+name = "has_responsibility"
+entity1 = "PERSON_ID_SECONDARY_AUTHOR" 
+entity2 = "RESPONSIBILITY" 
+
+#################### MANIFESTATION ####################
+
+[[relations]]
+name = "has_a_manifestation_volume"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "MANIFESTATION_VOLUME_ID" 
+
+[[relations]]
+name = "has_external_id"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "EXTERNAL_ID" 
+
+[[relations]]
+name = "has_short_title"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "SHORT_TITLE" 
+
+[[relations]]
+name = "has_place_of_publication"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "PLACE_OF_PUBLICATION"
+
+[[relations]]
+name = "has_date_of_publication"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "DATE_OF_PUBLICATION" 
+
+[[relations]]
+name = "has_print_run"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "PRINT_RUN" 
+
+
+[[relations]]
+name = "has_edition_number"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "EDITION_NUMBER" 
+
+[[relations]]
+name = "has_title_of_volumes"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "TITLE_OF_THE_VOLUME(S)" 
+
+[[relations]]
+name = "has_range_of_date_of_publication"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "RANGE_OF_DATE_OF_PUBLICATION" 
+
+
+[[relations]]
+name = "has_format"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "FORMAT" 
+
+[[relations]]
+name = "has_coalition_formula"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "COLLATION_FORMULA"
+
+[[relations]]
+name = "has_number_of_pages"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "NUMBER_OF_PAGES" 
+
+[[relations]]
+name = "has_introduction_pages"
+entity1 = "MANIFESTATION_ID" 
+entity2 = "PAGES_INTRODUCTION" 
+
+[[relations]]
+name="has_external_digitalization"
+entity1="MANIFESTATION_ID"
+entity2="EXTERNAL_DIGITIZATION"
+
+[[relations]]
+name="has_pages"
+entity1="MANIFESTATION_ID"
+entity2="PAGES"
+
+[[relations]]
+name="is_manifestation_of"
+entity1="MANIFESTATION_ID"
+entity2="EXPRESSION_ID"
+
+[[relations]]
+name="has_publisher"
+entity1="MANIFESTATION_ID"
+entity2="PERSON_ID_PUBLISHER"
+
+[[relations]]
+name="has_editor"
+entity1="MANIFESTATION_ID"
+entity2="PERSON_ID_EDITOR"
+
+[[relations]]
+name="has_corrector"
+entity1="MANIFESTATION_ID"
+entity2="PERSON_ID_CORRECTOR"
+
+[[relations]]
+name="has_sponsor"
+entity1="MANIFESTATION_ID"
+entity2="PERSON_ID_SPONSOR"
+
+[[relations]]
+name="has_publisher"
+entity1="MANIFESTATION_ID"
+entity2="INSTITUTION_ID_PUBLISHER"
+
+[[relations]]
+name="has_sponsor"
+entity1="MANIFESTATION_ID"
+entity2="INSTITUTION_ID_SPONSOR"
+
+#################### PLACE ####################
+[[relations]]
+name="has_name"
+entity1="PLACE_ID"
+entity2="NAME"
+
+
+[[relations]]
+name="has_description"
+entity1="PLACE_ID"
+entity2="DESCRIPTION_WIKIDATA"
+
+[[relations]]
+name="has_wikidata_link"
+entity1="PLACE_ID"
+entity2="WIKIDATA_LINK_PLACE"
+
+[[relations]]
+name="has_other_names"
+entity1="PLACE_ID"
+entity2="ALSO_KNOWN_AS"
+
+
+[[relations]]
+name="has_viaf_code"
+entity1="PLACE_ID"
+entity2="VIAF_CODE"
+
+[[relations]]
+name="has_other_codes"
+entity1="PLACE_ID"
+entity2="OTHER_CODES"
+
+
+[[relations]]
+name="has_wikidata_id"
+entity1="PLACE_ID"
+entity2="WIKIDATA_ID"
+
+[[relations]]
+name="has_coordinates"
+entity1="PLACE_ID"
+entity2="COORDINATES"
+
+#################### ITEM ####################
+[[relations]]
+name="contains_item"
+entity1="SHELF_MARK"
+entity2="ITEM_ID"
+
+[[relations]]
+name="preservation_status"
+entity1="ITEM_ID"
+entity2="PRESERVATION_STATUS_OF_ITEM"
+
+[[relations]]
+name="has_material"
+entity1="ITEM_ID"
+entity2="MATERIAL"
+
+[[relations]]
+name="is_type"
+entity1="ITEM_ID"
+entity2="TYPE"
+
+[[relations]]
+name="has_height_weight"
+entity1="ITEM_ID"
+entity2="HEIGHT_WIDTH"
+
+#[[relations]]
+#name="has_vol"
+#entity1="ITEM_ID"
+#entity2="VOL_ID"
+
+[[relations]]
+name="has_number_of_copy"
+entity1="ITEM_ID"
+entity2="NUMBER_OF_THE_COPY"
+
+[[relations]]
+name="has_surviving_pages"
+entity1="ITEM_ID"
+entity2="SURVIVING_NUMBER_OF_PAGES"
+
+[[relations]]
+name="has_preservation_status_of_pages"
+entity1="ITEM_ID"
+entity2="PRESERVATION_STATUS_OF_THE_PAGES"
+
+[[relations]]
+name="has_physical_description"
+entity1="ITEM_ID"
+entity2="PHYSICAL_DESCRIPTION"
+
+[[relations]]
+name="has_person_owner"
+entity1="ITEM_ID"
+entity2="PERSON_ID_OWNER_OF_ITEM"
+
+[[relations]]
+name="has_institution_owner"
+entity1="ITEM_ID"
+entity2="INSTITUTION_ID_OWNER_OF_ITEM"
+
+[[relations]]
+name="has_physical_object"
+entity1="ITEM_ID"
+entity2="PHYSICAL_OBJECT_ID"
+
+[[relations]]
+name="is_edition"
+entity1="ITEM_ID"
+entity2="MANIFESTATION_VOLUME_ID"
+
+#################### PAGE ####################
+
+[[relations]]
+name="has_page"
+entity1="ITEM_ID"
+entity2="PAGE_ID"
+
+[[relations]]
+name="has_name"
+entity1="PAGE_ID"
+entity2="NAME"
+
+[[relations]]
+name="has_description"
+entity1="PAGE_ID"
+entity2="DESCRIPTION_OF_PAGE"
+
+[[relations]]
+name="has_material"
+entity1="PAGE_ID"
+entity2="MATERIAL_PAGE"
+
+[[relations]]
+name="has_digital_item"
+entity1="PAGE_ID"
+entity2="DIGITAL_ITEM_ID"
+
+
+[[relations]]
+name="has_physical_object"
+entity1="PAGE_ID"
+entity2="PHYSICAL_OBJECT_ID"
+
+[[relations]]
+name="has_page"
+entity1="PHYSICAL_OBJECT_ID_PAGE"
+entity2="PAGE_ID"
+
+[[relations]]
+name="has_visual"
+entity1="PAGE_ID"
+entity2="VISUAL_OBJECT_ID"
+
+#################### VISUAL OBJECT ####################
+
+[[relations]]
+name="has_instrument"
+entity1="VISUAL_OBJECT_ID"
+entity2="INSTRUMENT"
+
+[[relations]]
+name="has_colour"
+entity1="VISUAL_OBJECT_ID"
+entity2="COLOUR"
+
+[[relations]]
+name="has_type"
+entity1="VISUAL_OBJECT_ID"
+entity2="TYPE"
+
+[[relations]]
+name="has_transcription"
+entity1="VISUAL_OBJECT_ID"
+entity2="TRANSCRIPTION"
+
+
+[[relations]]
+name="has_description"
+entity1="VISUAL_OBJECT_ID"
+entity2="DESCRIPTION_OF_VISUAL_OBJECT"
+
+[[relations]]
+name="has_quality_of_transcription"
+entity1="VISUAL_OBJECT_ID"
+entity2="QUALITY_OF_THE_TRANSCRIPTION"
+
+[[relations]]
+name="has_transcription_of_the_text_reffered_to_in_book"
+entity1="VISUAL_OBJECT_ID"
+entity2="TRANSCRIPTION_OF_THE_ТЕXТ_REFFERED_TO_IN_BOOK"
+
+[[relations]]
+name="has_description_of_the_text_reffered_to_in_book"
+entity1="VISUAL_OBJECT_ID"
+entity2="DESCRIPTION_OF_THE_ТЕXТ_REFFERED_TO_IN_BOOK"
+
+[[relations]]
+name="has_function"
+entity1="VISUAL_OBJECT_ID"
+entity2="FUNCTION"
+
+[[relations]]
+name="has_language"
+entity1="VISUAL_OBJECT_ID"
+entity2="LANGUAGE_OF_VISUAL"
+
+[[relations]]
+name="has_positions_in_page"
+entity1="VISUAL_OBJECT_ID"
+entity2="POSITION_IN_THE_PAGE"
+
+[[relations]]
+name="has_place"
+entity1="VISUAL_OBJECT_ID"
+entity2="PLACE_ID"
+						
+[[relations]]
+name="has_date_time"
+entity1="VISUAL_OBJECT_ID"
+entity2="DATE_ON_VISUAL"                  
+
+[[relations]]
+name="is_owned_by_person"
+entity1="VISUAL_OBJECT_ID"
+entity2="PERSON_ID_OWNERSHIP_OF"
+
+[[relations]]
+name="is_owned_by_institution"
+entity1="VISUAL_OBJECT_ID"
+entity2="INSTITUTION_ID_OWNERSHIP_OF"
+
+[[relations]]
+name="is_inscribed_by"
+entity1="VISUAL_OBJECT_ID"
+entity2="PERSON_ID_INSCRIBER"
+
+[[relations]]
+name="is_sent_by"
+entity1="VISUAL_OBJECT_ID"
+entity2="PERSON_ID_SENDER"
+
+[[relations]]
+name="is_recieved_by"
+entity1="VISUAL_OBJECT_ID"
+entity2="PERSON_ID_RECIPIENT"
+
+#################### PERSON ####################
+
+[[relations]]
+name="has_name_surname"
+entity1="PERSON_ID"
+entity2="SURNAME_NAME"
+
+[[relations]]
+name="has_date_of_birth"
+entity1="PERSON_ID"
+entity2="DATE_OF_BIRTH"
+
+[[relations]]
+name="has_dob_notes"
+entity1="PERSON_ID"
+entity2="DOB_NOTES"
+
+[[relations]]
+name="has_date_of_death"
+entity1="PERSON_ID"
+entity2="DATE_OF_DEATH"
+
+[[relations]]
+name="has_dod_notes"
+entity1="PERSON_ID"
+entity2="DOD_NOTES"
+
+[[relations]]
+name="has_additional_notes"
+entity1="PERSON_ID"
+entity2="ADDITIONAL_NOTES"
+
+[[relations]]
+name="has_wikidata_link"
+entity1="PERSON_ID"
+entity2="WIKIDATA_LINK_PERSON"
+
+[[relations]]
+name="has_gender"
+entity1="PERSON_ID"
+entity2="GENDER"
+
+[[relations]]
+name="has_aliases"
+entity1="PERSON_ID"
+entity2="ALIASES"
+
+[[relations]]
+name="is_part_of"
+entity1="PERSON_ID"
+entity2="INSTITUTION_ID"
+
+[[relations]]
+name="is_described_as"
+entity1="PERSON_ID"
+entity2="DESCRIPTION_WIKIDATA"
+
+[[relations]]
+name="also_known_as"
+entity1="PERSON_ID"
+entity2="ALSO_KNOWN_AS"
+
+[[relations]]
+name="has_viaf_code"
+entity1="PERSON_ID"
+entity2="VIAF_CODE"
+
+[[relations]]
+name="has_other_codes"
+entity1="PERSON_ID"
+entity2="OTHER_CODES"
+
+[[relations]]
+name="has_wikidata_id"
+entity1="PERSON_ID"
+entity2="WIKIDATA_ID"
+
+#################### PHYSICAL OBJECT ####################
+
+[[relations]]
+name="has_insertion_type"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="INSERTION_TYPE"
+
+
+[[relations]]
+name="has_type"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="TYPE"
+
+
+[[relations]]
+name="has_description"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="DESCRIPTION_OF_PHYSICAL_OBJECT"
+
+[[relations]]
+name="has_height_weight"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="HEIGHT_WIDTH"
+
+
+[[relations]]
+name="has_preservation_status"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="PRESERVATION_STATUS_OF_PHYSICAL_OBJECT"
+
+[[relations]]
+name="has_place"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="PLACE_ID"
+
+[[relations]]
+name="has_date"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="DATE_OF_PHYSICAL_OBJECT"
+
+[[relations]]
+name="has_creator"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="PERSON_ID_CREATOR_OF"
+
+[[relations]]
+name="has_creator"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="INSTITUTION_ID_CREATOR_OF"
+
+[[relations]]
+name="has_owner"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="PERSON_ID_OWNERSHIP_OF"
+
+[[relations]]
+name="has_owner"
+entity1="PHYSICAL_OBJECT_ID"
+entity2="INSTITUTION_ID_OWNERSHIP_OF"
+
+#################### EVENT ####################
+
+[[relations]]
+name="has_name"
+entity1="EVENT_ID"
+entity2="NAME"
+
+[[relations]]
+name="has_description"
+entity1="EVENT_ID"
+entity2="DESCRIPTION_EVENT"
+
+[[relations]]
+name="has_wikidata_link"
+entity1="EVENT_ID"
+entity2="WIKIDATA_LINK_EVENT"
+
+[[relations]]
+name="has_date"
+entity1="EVENT_ID"
+entity2="DATE_OF_EVENT"
+
+[[relations]]
+name="has_place"
+entity1="EVENT_ID"
+entity2="PLACE_ID"
+
+[[relations]]
+name="has_description"
+entity1="EVENT_ID"
+entity2="DESCRIPTION_WIKIDATA"
+
+[[relations]]
+name="also_known_as"
+entity1="EVENT_ID"
+entity2="ALSO_KNOWN_AS"
+
+[[relations]]
+name="has_viaf_code"
+entity1="EVENT_ID"
+entity2="VIAF_CODE"
+
+[[relations]]
+name="has_other_codes"
+entity1="EVENT_ID"
+entity2="OTHER_CODES"
+
+[[relations]]
+name="has_wikidata_id"
+entity1="EVENT_ID"
+entity2="WIKIDATA_ID"
+
+#################### ABSTRACT_CHARACTER ####################
+
+[[relations]]
+name="has_name"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="NAME"
+
+[[relations]]
+name="has_type"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="TYPE"
+
+[[relations]]
+name="has_description"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="DESCRIPTION_ABSTRACT_CHARACTER"
+[[relations]]
+name="has_wikidata_link"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="WIKIDATA_LINK_ABSTRACT_CHARACTER"
+
+
+[[relations]]
+name="has_aliases"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="ALIASES"
+
+
+[[relations]]
+name="has_description"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="DESCRIPTION_WIKIDATA"
+
+[[relations]]
+name="also_known_as"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="ALSO_KNOWN_AS"
+
+
+[[relations]]
+name="has_viaf_code"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="VIAF_CODE"
+
+[[relations]]
+name="has_other_codes"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="OTHER_CODES"
+
+[[relations]]
+name="has_wikidata_id"
+entity1="ABSTRACT_CHARACTER_ID"
+entity2="WIKIDATA_ID"
+
+
+#################### INSTITUTION ####################
+
+[[relations]]
+name="has_name"
+entity1="INSTITUTION_ID"
+entity2="NAME"
+
+[[relations]]
+name="has_wikidata_link"
+entity1="INSTITUTION_ID"
+entity2="WIKIDATA_LINK_INSTITUTION"
+
+
+
+[[relations]]
+name="has_place"
+entity1="INSTITUTION_ID"
+entity2="PLACE_ID"
+
+
+[[relations]]
+name="has_description"
+entity1="INSTITUTION_ID"
+entity2="DESCRIPTION_WIKIDATA"
+
+[[relations]]
+name="also_known_as"
+entity1="INSTITUTION_ID"
+entity2="ALSO_KNOWN_AS"
+
+[[relations]]
+name="has_viaf_code"
+entity1="INSTITUTION_ID"
+entity2="VIAF_CODE"
+
+[[relations]]
+name="has_other_codes"
+entity1="INSTITUTION_ID"
+entity2="OTHER_CODES"
+
+[[relations]]
+name="has_wikidata_id"
+entity1="INSTITUTION_ID"
+entity2="WIKIDATA_ID"
+
+#################### MENTIONS ####################
+[[relations]]
+name="is_mentioning"
+entity1="MENTIONING_ID"
+entity2="MENTIONED_ID"
+
+#################### RELATIONS ####################
+
+[[relations]]
+name="has_relation_name"
+entity1="PERSON_CHARACTER_ID_A"
+entity2="RELATION"
+
+[[relations]]
+name="is_related_to"
+entity1="PERSON_CHARACTER_ID_A"
+entity2="PERSON_CHARACTER_ID_B"
+
+#################### HYPOTHESIS ####################
+
+[[relations]]
+name = "has_description"
+entity1 = "HYPOTHESIS_ID" 
+entity2 = "DESCRIPTION"  
+
+[[relations]]
+name = "has_date"
+entity1 = "HYPOTHESIS_ID" 
+entity2 = "DATE" 
+
+[[relations]]
+name = "has_creator"
+entity1 = "HYPOTHESIS_ID" 
+entity2 = "PERSON_ID_HYPOTHESIS_OF" 
+
+[[relations]]
+name = "hypothesis_about"
+entity1 = "HYPOTHESIS_ID" 
+entity2 = "HYPOTHESIS_ABOUT_ID(S)"
