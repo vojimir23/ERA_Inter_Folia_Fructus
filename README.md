@@ -111,3 +111,4 @@ The `recipe.toml` file contains all the configuration needed for processing:
 - The script uses multithreading to speed up the processing of entities and relations, making it suitable for larger datasets.
 - It handles authentication securely using bearer tokens, which are reused for subsequent API requests.
 - The progress bars provide real-time status updates to indicate the completion of various stages in entity and relation creation.
+- With the goal and aspiration to make this process of transferring the data, many tweaking is expected soon.
