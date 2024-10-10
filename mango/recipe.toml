@@ -1,5 +1,5 @@
 [server]
-url = "http://era.islab.di.unimi.it/" # This is just a testing instance of ERA model.
+url = "http://eraiff.islab.di.unimi.it"
 user = ""
 password = ""
 
